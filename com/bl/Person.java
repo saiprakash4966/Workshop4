@@ -1,5 +1,10 @@
 package com.bl;
-
+/**
+ * In this class we have defined the variables
+ * 
+ * @author Sai
+ *
+ */
 public class Person
 {
 	private String firstName;
