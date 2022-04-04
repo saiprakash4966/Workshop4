@@ -10,61 +10,47 @@ import java.util.Scanner;
 public class AddressBookMain 
 {
 	
-	public static void main(String[] args) 
+	public static void main(String[] args) throws AddressBookException 
 	{
 		System.out.println("Welcome to Address Book Program");
-	}
 	
-	{
+	
+	
 		AddressBookMain AB=new AddressBookMain();
-		int num;
-
-		do {
-
-			System.out.println("Please Enter 1 to add person details in Address Book");
-			System.out.println("Please Enter 2 to Edit person details in Address Book");
-			System.out.println("Please Enter 3 to delete person details in Address Book");
-
-			System.out.println("Choose option to perform action");
-			Scanner sc = new Scanner(System.in);
-			num = sc.nextInt();
-
-			switch (num) {
+		MultipleAddressBook M=new MultipleAddressBook();
+		while (true)
+		{
+			System.out.println("Enter \n 1. To add the new AddressBook\n 2. To add contact in AddressBook\n "
+					+ "3. To edit the contact in AddressBook\n 4. To delete the contact in AddressBook\n 5. To delete the AddressBook\n "
+					+ "6. To Print the AddressBook\n 7. To Print the contacts in AddressBook\n 0. To exit");
+			Scanner scanner = new Scanner(System.in);
+			int choice = scanner.nextInt();
+			switch (choice) {
 			case 1:
-
-				AB.createContact();
-				AB.display();
-	
+				M.addAddressBook();
 				break;
-				
 			case 2:
-				AB.editPerson();
-				AB.display();
+				M.addContact();
 				break;
 			case 3:
-				AB.deleteContact();
-				AB.display();
-			}
-		} while (num != 0);
-	}
-
-	private void createContact() {
-		// TODO Auto-generated method stub
+				M.editContactInBook();
+				break;
+			case 4:
+				M.deleteContactInBook();
+				break;
+			case 5:
+				M.deleteAddressBook();
+				break;
+			case 6:
+				M.printBook();
+				break;
+			case 7:
+				M.printContactsInBook();
+				break;
+			case 0:
+				System.exit(0);
+				break;
+			default:
+				System.out.println("Enter the wrong input");
 		
-	}
-
-	private void deleteContact() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void editPerson() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void display() {
-		// TODO Auto-generated method stub
-		
-	}
-}
+			}}}}

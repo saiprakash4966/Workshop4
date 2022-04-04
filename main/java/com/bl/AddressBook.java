@@ -211,4 +211,10 @@ public class AddressBook
 			System.out.println("Person details " + person.getFirstName() +"\t" +person.getLastName()+"\t"+person.getAddress()+"\t" 
 					+person.getCity()+"\t"+person.getState()+ "\t"+person.getZipCode()+"\t"+person.getmobileNumber()+"\t"+person.getEmail());
 
+	}
+
+
+	public void addContact() {
+		// TODO Auto-generated method stub
+		
 	}}
