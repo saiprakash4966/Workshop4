@@ -11,13 +11,22 @@ import java.util.Scanner;
 public class AddressBook
 {
 	/**
+	 * PROCEDURE:
+	 * 1.Creating arraylist object
+	 * 2.created constructor
+	 * 3.createContact- This method is used to create contact and store the values into arraylist
+	 * 4.editPerson - Method to edit contact details of person with their name
+	 * 5.findContacts - find contacts with the given name
+	 * 
+	 */
+	/**
 	 * Created a array list of type ContactDetails and calling the function of
 	 * createContact.
 	 */
 	/**
 	 * 1.Creating arraylist object
 	 */
-	 ArrayList<Person> persons;
+	ArrayList<Person> persons;
 
 	/**
 	 * 2.created constructor
@@ -27,28 +36,49 @@ public class AddressBook
 
 	}
 
+	public void addContact() throws AddressBookException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of contacts you want to enter");
+		int number = sc.nextInt();
+		for (int i = 0; i < number; i++) {
+			System.out.println("Enter the contact details of person ");
+			checkDuplicates();
+		}
+	}
+	public void checkDuplicates() throws AddressBookException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println(" Please enter the first name:");
+		String name = sc.next();
+		for(Person i : persons) {
+		   if(i.getFirstName().equals(name)) {
+			   System.out.println(" Given name already exists");
+		   } return;
+       }  createContact();
+
+		
+	}
 
 	/**
-	 * This method is used to create contact and store the values into arraylist
+	 * 3.This method is used to create contact and store the values into arraylist
 	 * 
 	 * @return - returns list of contacts
 	 * @throws AddressBookException 
 	 */
 	public  void createContact() throws AddressBookException {
-		
+
 		/**
 		 * for input taken using scanner object
 		 */
 		Validations v=new Validations();
 		Scanner sc = new Scanner(System.in);
-		
+
 		System.out.print("Enter the First name : ");
 		String fname = sc.next();
 		v.firstNameofUser(fname);
 		System.out.print("Enter the Last name : ");
 		String lname = sc.next();
 		v.lastNameofUser(lname);
-		
+
 		System.out.print("Enter the Address : ");
 		String address = sc.next();
 		System.out.print("Enter the City : ");
@@ -56,7 +86,7 @@ public class AddressBook
 
 		System.out.print("Enter the state : ");
 		String state = sc.next();
-		
+
 		System.out.print("Enter the Zip Code : ");
 		int zip = sc.nextInt();
 
@@ -64,7 +94,7 @@ public class AddressBook
 		long phone = sc.nextLong();
 		String phone_number=Long.toString(phone);
 		v.mobileNumberOfUser(phone_number);
-		
+
 		System.out.print("Enter the Email: ");
 		String email = sc.next();
 		v.emaiIdofUser(email);
@@ -72,11 +102,11 @@ public class AddressBook
 		 * Data is added into the personDetail list
 		 */
 		persons.add(new Person(fname, lname, address, city, state, zip, phone, email));
-		
+
 	}
 
 	/**
-	 * Method to edit contact details of person with their name
+	 *4. Method to edit contact details of person with their name
 	 * @throws AddressBookException 
 	 */
 	public void editPerson() throws AddressBookException {
@@ -131,7 +161,7 @@ public class AddressBook
 			persons.setZipCode(newZipCode);
 			System.out.println("new zip code updated");
 			break;
-			
+
 		case 7:
 			System.out.println("Enter new phone number");
 			long newPhoneNumber = sc.nextLong();
@@ -141,7 +171,7 @@ public class AddressBook
 			System.out.println("new phone number updated");
 
 			break;
-			
+
 		case 8:
 			System.out.println("Enter new email");
 			String newEmail = sc.next();
@@ -156,9 +186,9 @@ public class AddressBook
 			break;
 		}
 		System.out.println("The contact after editing is : " + persons);
-		
+
 	}
-	
+
 
 	public Person findContacts() {
 		Scanner sc=new Scanner(System.in);
@@ -203,18 +233,10 @@ public class AddressBook
 		System.out.println("The contact has been deleted from the Address Book");
 	}
 
-
-
 	public  void display() {
 		for (Person person : persons)
 
 			System.out.println("Person details " + person.getFirstName() +"\t" +person.getLastName()+"\t"+person.getAddress()+"\t" 
 					+person.getCity()+"\t"+person.getState()+ "\t"+person.getZipCode()+"\t"+person.getmobileNumber()+"\t"+person.getEmail());
 
-	}
-
-
-	public void addContact() {
-		// TODO Auto-generated method stub
-		
 	}}
