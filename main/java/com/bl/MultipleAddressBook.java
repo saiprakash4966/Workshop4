@@ -110,6 +110,14 @@ public class MultipleAddressBook
 			}
 			System.out.println(" ");
 		}
+		public void searchByCity() {
+			// TODO Auto-generated method stub
+			
+		}
+		public void searchByState() {
+			// TODO Auto-generated method stub
+			
+		}
 
 	}
 
