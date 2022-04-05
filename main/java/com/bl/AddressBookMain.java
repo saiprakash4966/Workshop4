@@ -53,9 +53,9 @@ public class AddressBookMain
 			case 9:
 				M.searchByState();
 			case 10:
-				M.viewByByCity();
+				M.viewByCity();
 			case 11:
-				M.viewByByState();
+				M.viewByState();
 			case 0:
 				System.exit(0);
 				break;
