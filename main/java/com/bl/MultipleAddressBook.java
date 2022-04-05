@@ -118,11 +118,11 @@ public class MultipleAddressBook
 			// TODO Auto-generated method stub
 			
 		}
-		public void viewByByCity() {
+		public void viewByCity() {
 			// TODO Auto-generated method stub
 			
 		}
-		public void viewByByState() {
+		public void viewByState() {
 			// TODO Auto-generated method stub
 			
 		}
