@@ -232,7 +232,36 @@ public class AddressBook
 		persons.remove(person);                                                                        // remove method to delete the contact
 		System.out.println("The contact has been deleted from the Address Book");
 	}
+	/**
+	 *  In this method we are checking the persob by city
+	 * @param contact- We are pasing the contact there
+	 */
+	public void addPersonToCity(Person person) {
+		if (personByCity.containsKey(person.getCity())) {
+			personByCity.get(person.getCity()).add(person);
+		}
+		else {
+			ArrayList<Person> cityList = new ArrayList<Person>();
+			cityList.add(person);
+			personByCity.put(person.getCity(), cityList);
+		}
+	}
 
+
+	/**
+	 *  In this method we are checking the person by state
+	 * @param contact- We are parsing the contact there
+	 */
+	public void addPersonToState(Person person) {
+		if (personByState.containsKey(person.getState())) {			
+			personByState.get(person.getState()).add(person);
+		}
+		else {
+			ArrayList<Person> stateList = new ArrayList<Person>();
+			stateList.add(person);
+			personByState.put(person.getState(), stateList);
+		}
+	}
 	public  void display() {
 		for (Person person : persons)
 
